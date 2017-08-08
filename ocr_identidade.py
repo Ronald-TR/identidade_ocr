@@ -24,7 +24,7 @@ def mesclarImagem(mascara):  #mescla a respectiva mascara a identidade
     identidade = Image.open('identidade.jpg').resize(mascara.size).convert('RGBA')
     mescla = Image.alpha_composite(identidade, mascara)
     return binarize(mescla)
-    #return mescla
+    #return mescla # para testes do OCR sem a binarização
 
 # criando de fato, nossa lista de imagens pre-processadas para o OCR tesseract
 imMascaras = [mesclarImagem(Image.open(mascara).convert('RGBA')) for mascara in dir_mascaras]
